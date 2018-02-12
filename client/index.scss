@@ -34,6 +34,11 @@ nav {
   .left.brand-logo {
     margin-top: 0.1em
   }
+  li {
+    background-color: teal;
+    margin-right: 1.5em;
+    box-shadow: 0.3em 0.5em #888888;
+  }
 }
   #attendee-box {
     margin-top: 30px;

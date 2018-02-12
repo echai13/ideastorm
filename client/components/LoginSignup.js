@@ -7,10 +7,9 @@ export default function LoginSignup () {
       $('ul.tabs').tabs()
 
       let auth = $('#auth')
-      let backgrounds = new Array(
-      'url(/meeting-02.jpeg)', 'url(/meeting-01.jpg)', 'url(/meeting-03.jpg)', 'url(/meeting-04.jpeg)')
+      let backgrounds = ['url(/meeting-02.jpeg)', 'url(/meeting-01.jpg)', 'url(/meeting-03.jpg)', 'url(/meeting-04.jpeg)']
 
-      var current = 0;
+      let current = 0;
 
       function nextBackground() {
           current++;
@@ -33,6 +32,7 @@ export default function LoginSignup () {
               <li className="tab col s3"><a className="active" href="#test1">Login</a></li>
               <li className="tab col s3"><a  href="#test2">Signup</a></li>
             </ul>
+            <small>Demo Username: Erica@email.com, Password: 456</small>
             <div id="test1" className="">
               <Login />
             </div>
