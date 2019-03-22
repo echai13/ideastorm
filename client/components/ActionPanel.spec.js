@@ -6,12 +6,10 @@ import sinon from 'sinon'
 enzyme.configure({ adapter: new Adapter() })
 
 if (!global.window){
-  console.log('inside mock browser condition')
   const MockBrowser = require('mock-browser').mocks.MockBrowser
   global.window = new MockBrowser().getWindow();
   global.document = new MockBrowser().getDocument()
   global.$ = require('jquery')
-  // var { Home } = require('./Home')
   var { ActionPanel } = require('./index')
 }
 

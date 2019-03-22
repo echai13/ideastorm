@@ -2,16 +2,16 @@ const router = require('express').Router()
 const { User } = require('../db/models')
 module.exports = router
 
-router.get('/', (req, res, next) => {
-  User.findAll(
-    {attributes: ['id', 'email', 'name', 'userName', 'image']}
-  )
-    .then(users => res.json(users))
+router.get('/', (_, response, next) => {
+  User.findAll({
+    attributes: ['id', 'email', 'name', 'userName', 'image'],
+  })
+    .then(user => response.json(user))
     .catch(next)
 })
 router.get('/:userId', (req, res, next) => {
   User.findById(req.params.userId)
-    .then(users => res.json(users))
+    .then(user => res.json(user))
     .catch(next)
 })
 router.put('/:userId', (req, res, next) => {

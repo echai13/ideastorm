@@ -3,5 +3,6 @@ const db = new Sequelize(
   process.env.DATABASE_URL || 'postgres://localhost:5432/meeb', {
     logging: false
   }
-)
-module.exports = db
+);
+
+module.exports = db;

@@ -22,14 +22,11 @@ export class Home extends Component {
     this.onMouseDown = this.onMouseDown.bind(this)
     this.onMouseUp = this.onMouseUp.bind(this)
     this.onMouseMove = this.onMouseMove.bind(this)
-    this.handleScroll = this.handleScroll.bind(this)
   }
 
   componentDidMount() {
     this.props.emptyNotes()
-    window.addEventListener('scroll', this.handleScroll)
     const demoBoard = ['Click on the bottom right toggle and input text', 'Submit and note will appear on whiteboard', 'You can drag the card around. Sign up to unlock more features']
-    console.log(this.props.notes)
     demoBoard.forEach(text => {
       console.log('text: ', text)
       let bodyPos = document.body.getBoundingClientRect()
@@ -37,10 +34,6 @@ export class Home extends Component {
       this.notePositions[++this.noteId] = [this.noteId * 500 + 50, Math.abs(bodyPos.top) + whiteboardPos.top + 100]
       this.props.createNote({ id: this.noteId, text, position: this.notePositions[this.noteId] })
     })
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll)
   }
 
   componentDidUpdate(props, state) {
@@ -51,18 +44,6 @@ export class Home extends Component {
       document.removeEventListener('mousemove', this.onMouseMove)
       document.removeEventListener('mouseup', this.onMouseUp)
     }
-  }
-
-  handleScroll() {
-    const intro = document.getElementById('intro')
-    let prevScrollPos = this.state.scrollPos
-    let introPos = intro.getBoundingClientRect()
-    if (introPos.top < 25 && introPos.top > 5 && prevScrollPos < window.scrollY) {
-      window.scrollTo(0, 108)
-    } else if (introPos.height - introPos.bottom > 600 && (prevScrollPos < window.scrollY) && introPos.height - introPos.bottom < 620) {
-      window.scrollTo(0, introPos.height + 108)
-    }
-    this.setState({ scrollPos: window.scrollY })
   }
 
   handleSubmit(evt) {
@@ -142,9 +123,9 @@ export class Home extends Component {
 
         <div className="intro" id="intro">
           <span>
-          <h3>Collaborative brainstorming?</h3>
-          <h3>All you need is our virtual whiteboard.</h3>
-          <p>Test it out with our demo below</p>
+            <h3>Collaborative brainstorming?</h3>
+            <h3>All you need is our virtual whiteboard.</h3>
+            <p>Test it out with our demo below</p>
           </span>
         </div>
 

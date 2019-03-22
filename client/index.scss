@@ -2,25 +2,31 @@ body {
   font-family: sans-serif;
   max-width: 100%;
   background-color: white;
+}
 
-  a {
-    text-decoration: none;
-  }
+a {
+  text-decoration: none;
+}
 
-  label {
-    display: block;
-  }
+label {
+  display: block;
+}
 
-  nav a, nav h4 {
-    display: inline-block;
-    margin: 1em;
-    color: black
+nav a, nav h4 {
+  display: inline-block;
+  margin: 1em;
+  color: black
+}
+
+button, .btn {
+  border: none;
+  color: black;
+
+  &:hover {
+    font-weight: 700;
   }
- button, .btn {
-  //  background-color: rgb(3, 3, 82);
-  background-color: #212121;
-   color: yellow;
- }
+}
+
 nav {
   z-index: 1;
   background-color: transparent;
@@ -28,151 +34,145 @@ nav {
   &.nav {
     box-shadow: none;
   }
+
   .nav-wrapper {
     border-top: grey 0.1em solid;
   }
+
   .left.brand-logo {
-    margin-top: 0.1em
+    margin-top: 0.1em;
+    color: #ffd52b;
+    -webkit-text-stroke: beige 1px;
+    :hover {
+      font-weight: 700;
+    }
   }
+
   li {
     background-color: teal;
     margin-right: 1.5em;
     box-shadow: 0.3em 0.5em #888888;
   }
 }
-  #attendee-box {
-    margin-top: 30px;
-    width:10vw;
-    position: fixed;
-    z-index: 25;
-    #attendees {
-      display: flex;
-      flex-direction: column;
-      height: 130px;
-      width: 8vw;
-      margin-top: 65px;
-      overflow-y: scroll;
-      .chip {
-        white-space: nowrap;
-      }
-    }
-    button {
-      width: 7vw;
-      position: fixed
-    }
-  }
-
-  .sidebar {
-    margin-top: 10vh;
-    position: fixed;
-    z-index: 1;
-    background-color: grey;
+#attendee-box {
+  margin-top: 30px;
+  width:10vw;
+  position: fixed;
+  z-index: 25;
+  #attendees {
     display: flex;
     flex-direction: column;
-    width: 20vw;
-    bottom: 0;
-
-  }
-
-  #main-space {
-    display: flex;
-    flex-direction: row;
-  }
-
-  #basket {
-    float:right;
-    position: fixed;
-    right: 0;
-    top: 70;
-    width: 300px;
-    height: 250px;
-
-  }
-
-  #whiteboard {
-    overflow: scroll;
-  }
-  .aUser {
-    font: 30%;
-  }
-  #formBox {
-    border: 5px solid grey;
-  }
-  #formNote {
-    border-top-style: dotted;
-    border-bottom-style: dotted;
-    border-color: grey;
-  }
-  .popup-box {
-    height: 40vh;
-    float: left;
+    height: 130px;
+    width: 8vw;
+    margin-top: 65px;
     overflow-y: scroll;
-  }
-
-  .chat-header {
-    background: yellow;
-  	border-radius: 5px 5px 0 0;
-  	color: rgb(3, 3, 82);
-  	cursor: pointer;
-  	padding: 10px 10px;
-  }
-
-  .chat-box {
-    border: 2px solid black;
-    width: 19vw;
-    bottom: 0px;
-    left: 0px;
-    transition: all .4s ease-in-out;
-    align-self: center;
-    .chat-list {
-      width: 18vw;
-      overflow-wrap: break-word;
-    }
-
-  }
-
-  div.twitter-picker {
-    width: auto !important;
-  }
-  .card {
-    width: 250px;
-    min-height: 100px;
-    margin: 0 auto;
-    .card-image {
-      max-width: 65%;
-      transition: 1s;
-    }
-    .card-image:hover {
-      transform: scale(2,2);
+    .chip {
+      white-space: nowrap;
     }
   }
-
-
-
-  .colorPalette {
-    right: 100px;
-    bottom: 32px;
-    position: absolute;
-    border-radius: 50%;
+  button {
+    width: 7vw;
+    position: fixed
   }
-
-  // #mini-whiteboard {
-  //   width: 90vw;
-  //   height: 50vh;
-  //   background-color: pink;
-  //   margin: 0 auto;
-  // }
-
-  i.icon-grey{
-    color: grey;
 }
 
-  // .home-whiteboard {
-  //   width: 60vw;
-  //   height: 60vh;
-  //   background-color: pink
-  // }
-  /* The Modal (background) */
+.sidebar {
+  margin-top: 10vh;
+  position: fixed;
+  z-index: 1;
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  bottom: 0;
+
+}
+
+#main-space {
+  display: flex;
+  flex-direction: row;
+}
+
+#basket {
+  float:right;
+  position: fixed;
+  right: 0;
+  top: 70;
+  width: 300px;
+  height: 250px;
+
+}
+
+#whiteboard {
+  overflow: scroll;
+}
+.aUser {
+  font: 30%;
+}
+#formBox {
+  border: 5px solid grey;
+}
+#formNote {
+  border-top-style: dotted;
+  border-bottom-style: dotted;
+  border-color: grey;
+}
+.popup-box {
+  height: 40vh;
+  float: left;
+  overflow-y: scroll;
+}
+
+.chat-header {
+  background: yellow;
+  border-radius: 5px 5px 0 0;
+  color: rgb(3, 3, 82);
+  cursor: pointer;
+  padding: 10px 10px;
+}
+
+.chat-box {
+  border: 2px solid black;
+  width: 19vw;
+  bottom: 0px;
+  left: 0px;
+  transition: all .4s ease-in-out;
+  align-self: center;
+  .chat-list {
+    width: 18vw;
+    overflow-wrap: break-word;
+  }
+}
+
+div.twitter-picker {
+  width: auto !important;
+}
+
+.card {
+  width: 250px;
+  min-height: 100px;
+  margin: 0 auto;
+  .card-image {
+    max-width: 65%;
+    transition: 1s;
+  }
+  .card-image:hover {
+    transform: scale(2,2);
+  }
+}
+
+.colorPalette {
+  right: 100px;
+  bottom: 32px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+i.icon-grey{
+  color: grey;
+}
+
+/* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -190,7 +190,6 @@ nav {
 /* Modal Content */
 .modal-content {
   background-color: #fefefe;
-  // margin: 20 auto;
   margin-left: 12vw;
   padding: 20px;
   border: 1px solid #888;
@@ -201,7 +200,6 @@ nav {
 /* The Close Button */
 .close {
   color: #aaaaaa;
-  // float: right;
   font-size: 12px;
   margin: 10px;
 }
@@ -245,7 +243,7 @@ div.home-whiteboard {
       font-weight: 300;
     }
     p {
-      color: orange;
+      color: #ffd52b;
       font-size: 1.5em;
     }
   }
@@ -256,7 +254,7 @@ div.home-whiteboard {
     border: lightgrey 1.5em solid;
   }
   .features {
-    background-color: lightyellow;
+    background-color: #FFFF66;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -287,20 +285,25 @@ div.home-whiteboard {
   }
 
   .take-actions {
-    min-height: 30vh;
+    min-height: 24vh;
     display: flex;
     align-items: center;
     justify-content: center;
     button {
       color: aliceblue;
-      background-color: orange;
-      border-radius: 0.5em;
+      background-color: #ffd52b;
+      border-radius: 0.2em;
       font-size: 1.8em;
       margin: 0.7em;
-      padding: 0.8em;
+      padding: 0.6em;
       font-weight: 300;
+      &:hover {
+        color: black;
+      }
     }
   }
 }
 
+ul.tabs li.tab a {
+  text-overflow: initial;
 }

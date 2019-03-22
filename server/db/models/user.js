@@ -27,6 +27,10 @@ const User = db.define('user', {
   },
   userName: {
     type: Sequelize.STRING
+  },
+  active: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
   }
 })
 
@@ -67,6 +71,15 @@ const setUserName = user => {
     const name = user.name.split(',');
     user.userName = name[0][0] + name[name.length - 1]
   }
+}
+
+User.loginUser = (email) => {
+  return User.findOne({
+    where: Sequelize.where(
+      Sequelize.fn('lower', Sequelize.col('email')),
+      Sequelize.fn('lower', email)
+    )
+  });
 }
 
 User.beforeCreate(setSaltAndPassword)
